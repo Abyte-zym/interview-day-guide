@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面试当天生存指南 | Java实习面试必备</title>
+<meta name="description" content="面试当天从起床到出门完整checklist：着装-路线-自我介绍-反问问题-薪资谈判。2026 Java实习面试实战指南，帮你从进门前就赢。">
+<meta name="keywords" content="面试当天准备, 面试checklist, Java面试技巧, 面试反问问题, 面试着装, 薪资谈判">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:20px}
+.container{max-width:700px;margin:0 auto}
+.header{text-align:center;color:#fff;padding:30px 0}
+.header h1{font-size:2em;margin-bottom:8px}
+.header p{opacity:.9}
+.card{background:#fff;border-radius:16px;padding:24px;margin:16px 0;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.card h2{font-size:1.3em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.checklist{list-style:none}
+.checklist li{padding:10px 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:flex-start;gap:10px}
+.checklist li:last-child{border-bottom:none}
+.checkbox{width:22px;height:22px;border:2px solid #764ba2;border-radius:6px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.checkbox.checked{background:#764ba2;color:#fff}
+.checkbox.checked::after{content:'✓';font-weight:bold}
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:3px;background:#764ba2;border-radius:2px}
+.timeline-item{position:relative;margin-bottom:20px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:14px;height:14px;background:#764ba2;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 3px #764ba2}
+.time{font-weight:bold;color:#764ba2;font-size:0.9em}
+.qa-item{background:#f8f4ff;padding:14px;border-radius:10px;margin:10px 0}
+.qa-item .q{font-weight:bold;color:#333;margin-bottom:6px}
+.qa-item .a{color:#555;font-size:0.95em}
+.tips{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px;margin:10px 0}
+.tips strong{color:#856404}
+.danger{background:#ffeaea;border:1px solid #e74c3c;border-radius:10px;padding:14px;margin:10px 0}
+.danger strong{color:#c0392b}
+.donate-section{text-align:center;margin:30px 0;padding:24px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.donate-section img{width:180px;border-radius:12px;margin:10px 0}
+.donate-section p{color:#666}
+.countdown{text-align:center;font-size:1.4em;font-weight:bold;color:#764ba2;padding:16px}
+.countdown span{background:#764ba2;color:#fff;padding:4px 12px;border-radius:8px;margin:0 3px}
+.btn{display:inline-block;background:#764ba2;color:#fff;padding:10px 24px;border-radius:25px;text-decoration:none;font-weight:bold;margin:6px}
+.footer{text-align:center;color:#fff;opacity:.8;padding:20px 0;font-size:0.9em}
+.footer a{color:#ffd700}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🎯 面试当天生存指南</h1>
+<p>从起床到面试结束 · 每一步都提前准备好</p>
+</div>
+
+<!-- 倒计时 -->
+<div class="card">
+<h2>⏰ 面试倒计时</h2>
+<div class="countdown">
+<input type="datetime-local" id="interviewDate" style="padding:8px;border-radius:8px;border:2px solid #764ba2;font-size:1em" onchange="updateCountdown()">
+<p id="countdownDisplay" style="margin-top:12px">选择面试时间查看倒计时</p>
+</div>
+</div>
+
+<!-- 面试前24小时 -->
+<div class="card">
+<h2>📋 面试前24小时 Checklist</h2>
+<ul class="checklist" id="pre24">
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>确认面试时间、平台（Zoom/腾讯会议/线下地址）</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>测试摄像头、麦克风、网络（线上面试用）</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>打印3份纸质简历（线下面用）</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>准备1分钟自我介绍并录音回听</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>浏览公司官网，记住3个关键信息（产品/融资/团队规模）</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>准备3个反问问题（见下方推荐）</li>
+<li onclick="this.querySelector('.checkbox').classList.toggle('checked')"><span class="checkbox"></span>复习简历上的项目核心数字（QPS、优化百分比）</li>
+</ul>
+</div>
+
+<!-- 面试当天时间线 -->
+<div class="card">
+<h2>🕐 面试当天时间线</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="time">起床后（面试前2小时）</div>
+<p>吃早餐但不吃太饱 → 洗个热水澡提神 → 穿正式但舒适的衬衫</p>
+</div>
+<div class="timeline-item">
+<div class="time">面试前1小时</div>
+<p>对镜子演练一遍自我介绍 → 打开电脑测试设备 → 准备一杯温水在旁边</p>
+</div>
+<div class="timeline-item">
+<div class="time">面试前20分钟</div>
+<p>打开公司官网再看一眼 → 深呼吸3次 → 准备好纸笔（记面试官说的关键信息）</p>
+</div>
+<div class="timeline-item">
+<div class="time">面试前5分钟</div>
+<p>进会议室/到公司前台 → 微笑 → 最后检查摄像头背景是否整洁</p>
+</div>
+<div class="timeline-item">
+<div class="time">面试中</div>
+<p>语速放慢30% → 每个回答控制在1-2分钟 → 不会就说"这个我还在学习"</p>
+</div>
+<div class="timeline-item">
+<div class="time">面试结束</div>
+<p>微笑说"谢谢您的时间" → 24小时内发一封感谢邮件</p>
+</div>
+</div>
+</div>
+
+<!-- 反问问题推荐 -->
+<div class="card">
+<h2>💬 反问环节：必问3个问题</h2>
+<div class="qa-item">
+<div class="q">❓ 1. "团队目前的技术栈是怎样的？我入职后主要负责哪个模块？"</div>
+<div class="a">展示你对实际工作的关心，不是来混的。</div>
+</div>
+<div class="qa-item">
+<div class="q">❓ 2. "实习生入职后会有导师带吗？前两周的培训流程大概是什么？"</div>
+<div class="a">展示你想快速上手，对成长有规划。</div>
+</div>
+<div class="qa-item">
+<div class="q">❓ 3. "如果我有幸加入，面试前需要提前学什么技术吗？"</div>
+<div class="a">展示主动性，面试官会对你印象深刻。</div>
+</div>
+<div class="tips">
+<strong>⚠️ 不要问：</strong>薪资（HR面再问）、几点下班、能不能远程——第一轮技术面只展示能力。
+</div>
+</div>
+
+<!-- 常见失误 -->
+<div class="card">
+<h2>🚫 面试当天绝对不要做的事</h2>
+<div class="danger">
+<strong>❌ 迟到：</strong>提前10-15分钟到。迟到是不可逆扣分。<br><br>
+<strong>❌ 对前公司/学校抱怨：</strong>不论面试官怎么引导，不要说负面评价。<br><br>
+<strong>❌ 不懂装懂：</strong>"这个我了解不深，但我的理解是XX，之后会深入学习"  >  硬编一个错误答案。<br><br>
+<strong>❌ 面试后立刻发消息催结果：</strong>等1-2个工作日，如果没回再礼貌问候。
+</div>
+</div>
+
+<!-- 薪资谈判（HR面） -->
+<div class="card">
+<h2>💰 薪资谈判速成（HR面专用）</h2>
+<div class="qa-item">
+<div class="q">HR问"期望薪资多少？"</div>
+<div class="a">"我相信贵司有完善的薪酬体系，我期望在行业平均水平基础上，根据我的项目经验和面试表现综合评估。方便了解一下岗位的薪资范围吗？"<br>
+<strong>——把球踢回去，先让对方亮底牌。</strong></div>
+</div>
+<div class="qa-item">
+<div class="q">HR说"给你XK，能接受吗？"</div>
+<div class="a">"这个数字和我的预期有一点差距。我独立完成过两个完整项目（RAG知识库+微服务秒杀），AIGC全国三等奖，能否在XK+10%左右？"<br>
+<strong>——用事实加价，不说"我觉得"。</strong></div>
+</div>
+</div>
+
+<!-- 赞赏 -->
+<div class="donate-section">
+<h3>☕ 这份指南帮你拿到了Offer？</h3>
+<p>请作者喝杯咖啡，开源工具持续更新</p>
+<img src="qrcode-wx.png" alt="微信赞赏码" onerror="this.src='https://Abyte-zym.github.io/java-career-blog/qrcode-wx.png'">
+<p style="font-size:0.85em">微信扫码赞赏</p>
+</div>
+
+<div style="text-align:center;margin:20px 0">
+<a href="https://Abyte-zym.github.io/java-resume-builder" class="btn">📝 免费简历生成</a>
+<a href="https://Abyte-zym.github.io/java-interview-quiz" class="btn">☕ 面试题库</a>
+<a href="https://Abyte-zym.github.io/java-interview-simulator" class="btn">🎯 模拟面试</a>
+</div>
+
+<div class="footer">
+<p>📊 <strong>17站Java工具矩阵</strong> · 全部免费 · <a href="https://github.com/Abyte-zym">GitHub</a></p>
+<p>© 2026 Java面试通关 | 面试加油！💪</p>
+</div>
+</div>
+
+<script>
+function updateCountdown(){
+var d=new Date(document.getElementById('interviewDate').value);
+var now=new Date();
+var diff=d-now;
+if(diff<0){document.getElementById('countdownDisplay').innerHTML='⏰ 面试时间已过！';return}
+var days=Math.floor(diff/86400000);
+var hours=Math.floor(diff%86400000/3600000);
+var mins=Math.floor(diff%3600000/60000);
+document.getElementById('countdownDisplay').innerHTML='距离面试还有 <span>'+days+'</span> 天 <span>'+hours+'</span> 小时 <span>'+mins+'</span> 分钟';
+}
+</script>
+</body>
+</html>
